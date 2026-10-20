@@ -1,0 +1,664 @@
+/* CSC 106 Term Project — Student Portfolio & Academic Management Website
+   Student: Chimtokarisiri Praise Chukwunonye
+   Matric No: 2025/C/CYB/1163
+   Course: CSC 106 — Introduction to Web Technologies
+   Program: BSc. Cybersecurity
+   External stylesheet (requirement: external CSS) */
+
+/* ---------- Consistent colour scheme & base reset ---------- */
+:root {
+    --primary: #2c3e50;       /* dark slate — professional cybersecurity feel */
+    --primary-dark: #1a252f;
+    --accent: #3498db;        /* accent blue */
+    --accent-hover: #2980b9;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --light: #f4f6f8;
+    --white: #ffffff;
+    --gray: #6c757d;
+    --border: #dfe3e6;
+    --shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: var(--white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* images & multimedia requirement */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------- Header / Navigation (nav styling) ---------- */
+header {
+    background-color: var(--primary);
+    color: var(--white);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--shadow);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* ---------- Hero / homepage layout (flexbox) ---------- */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 0;
+    background-color: var(--light);
+}
+
+.hero-text {
+    flex: 1 1 300px;
+}
+
+.hero-text h1 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+.hero-text .welcome {
+    font-size: 1.1rem;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+.hero-text .bio {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    max-width: 450px;
+}
+
+.hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--white);
+    box-shadow: var(--shadow-hover);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.matric {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 600;
+    background: rgba(52, 152, 219, 0.1);
+    padding: 0.35rem 0.9rem;
+    border-radius: 20px;
+    border: 1px solid var(--accent);
+}
+
+/* ---------- Sections / page content ---------- */
+section {
+    padding: 3rem 0;
+}
+
+h2 {
+    font-size: 1.7rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.25rem;
+    color: var(--primary);
+    margin-bottom: 0.75rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+/* About page — educational background & skills (table requirement) */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.info-card h4 {
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.skills-table th,
+.skills-table td {
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.skills-table th {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.skills-table tr:nth-child(even) {
+    background-color: var(--light);
+}
+
+.skills-table tr:hover {
+    background-color: #eef2f5;
+}
+
+/* Projects page — grid layout (CSS Grid requirement) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-image {
+    height: 180px;
+    background-color: var(--light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.project-card h3 {
+    margin: 1rem 1rem 0.5rem 1rem;
+    text-align: left;
+}
+
+.project-card p {
+    padding: 0 1rem 1rem 1rem;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.project-links {
+    padding: 0 1rem 1.25rem 1rem;
+    margin-top: auto;
+}
+
+.project-links .btn {
+    display: inline-block;
+    background: var(--primary);
+    color: var(--white);
+    padding: 0.55rem 1.1rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 0.6rem;
+    margin-bottom: 0.6rem;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.project-links .btn:hover {
+    background: var(--accent-hover);
+}
+
+.project-links .btn.outline {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+}
+
+.project-links .btn.outline:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Academic Planner (interactive task management — JS) */
+.planner-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+}
+
+.planner-card h2 {
+    text-align: left;
+    margin-bottom: 1.25rem;
+}
+
+.task-form {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.task-form input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.task-form button {
+    padding: 0.7rem 1.2rem;
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.task-form button:hover {
+    background: var(--accent-hover);
+}
+
+.task-list {
+    margin-top: 1rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 0.75rem;
+    background: var(--white);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.task-item:hover {
+    background: #fafbfc;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--gray);
+}
+
+.task-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--success);
+}
+
+.task-text {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.task-actions button {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.8rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.task-actions .btn-done {
+    background: var(--success);
+    color: var(--white);
+}
+
+.task-actions .btn-delete {
+    background: var(--danger);
+    color: var(--white);
+}
+
+.empty-tasks {
+    text-align: center;
+    color: var(--gray);
+    font-style: italic;
+    padding: 1.5rem;
+}
+
+/* Contact page — form with JS validation */
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.contact-card h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.contact-form button {
+    width: fit-content;
+    max-width: 160px;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+    background: var(--accent-hover);
+}
+
+#form-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    min-height: 1.2rem;
+}
+
+/* ---------- Animations / transitions ---------- */
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7rem 1.4rem;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background: var(--primary-dark);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+}
+
+footer p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* ---------- Mobile-friendly (responsive design) ---------- */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: var(--primary-dark);
+        padding: 1rem 0;
+        margin-top: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .mobile-toggle {
+        display: block;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 0;
+    }
+
+    .hero-text .bio {
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .hero-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .task-form {
+        flex-direction: column;
+    }
+
+    .task-form input[type="text"] {
+        min-width: auto;
+    }
+
+    .contact-card,
+    .planner-card {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.4rem;
+    }
+    .container {
+        padding: 0 1rem;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Chimtokarisiri Praise Chukwunonye</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span>CP.</span> Portfolio
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle">&#9776;</button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html">Academic Planner</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
+                    Feel free to reach out using the form below. All fields are required and will be validated before submission.
+                </p>
+
+                <div class="contact-card">
+                    <form id="contact-form" class="contact-form" novalidate>
+                        <div>
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Chimtokarisiri Praise Chukwunonye" required>
+                        </div>
+
+                        <div>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="p.chukwunonye4718@miva.edu.ng" required>
+                        </div>
+
+                        <div>
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="08012345678" required>
+                        </div>
+
+                        <div>
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="How can I help you?" required></textarea>
+                        </div>
+
+                        <button type="submit">Send Message</button>
+                        <p id="form-message"></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Chimtokarisiri Praise Chukwunonye | BSc. Cybersecurity, Miva Open University</p>
+            <p>CSC 106 — Introduction to Web Technologies | Term Project</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

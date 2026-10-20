@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner | Chimtokarisiri Praise Chukwunonye</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <span>CP.</span> Portfolio
+                </a>
+                <button class="mobile-toggle" id="mobile-toggle">&#9776;</button>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="planner.html" class="active">Academic Planner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="fade-in">
+            <div class="container">
+                <h2>Academic Planner</h2>
+                <p style="text-align: center; color: #666; max-width: 600px; margin: 0 auto 2rem auto;">
+                    Manage your coursework tasks. Add a task, mark it as completed when done, or delete it when no longer needed.
+                </p>
+
+                <div class="planner-card">
+                    <form id="task-form" class="task-form">
+                        <input
+                            type="text"
+                            id="task-input"
+                            placeholder="e.g. Complete CSS assignment"
+                            required
+                            autocomplete="off">
+                        <button type="submit">Add Task</button>
+                    </form>
+
+                    <div class="task-list" id="task-list">
+                        <!-- Tasks will be added here dynamically by JavaScript -->
+                        <p class="empty-tasks" id="empty-tasks">No tasks yet. Add your first task above.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Chimtokarisiri Praise Chukwunonye | BSc. Cybersecurity, Miva Open University</p>
+            <p>CSC 106 — Introduction to Web Technologies | Term Project</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
